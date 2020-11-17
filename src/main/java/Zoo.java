@@ -1,11 +1,11 @@
 import java.util.ArrayList;
 
-
 public class Zoo {
 	
 	private final int LIMITE_SECTEUR = 15;
 	private int visiteur;
 	private ArrayList<Secteur> secteursAnimaux;
+	private String name = "zoo";
 	
 	public Zoo() {
 		this.visiteur = 0 ;
@@ -39,4 +39,14 @@ public class Zoo {
 	public Secteur getSecteurFromType(TypeAnimal type) {
 		return secteursAnimaux.stream().filter(s -> s.obtenirType() == type).findFirst().orElse(null);
 	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+	
 }

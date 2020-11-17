@@ -58,4 +58,18 @@ public class TestApp {
 		assertFalse(e instanceof AnimalDansMauvaisSecteurException);
 		assertEquals(1,zoo.nombreAnimaux());
 	}
+	
+	@Test
+	public void testComparaisonSecteur() throws AnimalDansMauvaisSecteurException {
+		
+		Secteur secteur1 = new Secteur(TypeAnimal.CHAT);
+		Secteur secteur2 = new Secteur(TypeAnimal.CHIEN);
+		
+		assertEquals(0,secteur1.compareTo(secteur2));
+		
+		secteur1.ajouterAnimal(new Chat("Riri"));
+		
+		assertTrue(secteur1.compareTo(secteur2) > 0);
+		
+	}
 }
