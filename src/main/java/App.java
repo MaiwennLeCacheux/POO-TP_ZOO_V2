@@ -1,9 +1,13 @@
 import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+
+import com.thoughtworks.xstream.XStream;
 
 public class App {
 
@@ -77,6 +81,25 @@ public class App {
 		                    }
 		                   break;
 		              case "0":
+		            	  
+		            	  	zoo.AjouterSecteur(TypeAnimal.CHAT);
+			          		zoo.AjouterSecteur(TypeAnimal.CHIEN);
+			          		zoo.AjouterSecteur(TypeAnimal.CHAT);
+			          		zoo.AjouterSecteur(TypeAnimal.CHIEN);
+			          		zoo.AjouterSecteur(TypeAnimal.CHIEN);
+			          		
+			          		zoo.nouvelAnimal(new Chat("Felix"));
+			          		zoo.nouvelAnimal(new Chat("Gandalf"));
+			          		zoo.nouvelAnimal(new Chat("Malot"));
+			          		zoo.nouvelAnimal(new Chat("Griffe"));
+			          		zoo.nouvelAnimal(new Chat("Samuel"));
+			          		zoo.nouvelAnimal(new Chat("Brad Pitt"));
+			          		
+			          		System.out.println("nombre d'animaux : "+zoo.nombreAnimaux());
+		            	  
+			            	XStream xstream = new XStream();
+			                xstream.toXML(zoo, new FileOutputStream(new File("zoo.xml")));
+		                  
 		                   System.out.println("Au revoir.");
 		                   flag = false;
 		                   break;
@@ -87,22 +110,13 @@ public class App {
 		
 		
 		
-		zoo.AjouterSecteur(TypeAnimal.CHAT);
-		zoo.AjouterSecteur(TypeAnimal.CHIEN);
-		zoo.AjouterSecteur(TypeAnimal.CHAT);
-		zoo.AjouterSecteur(TypeAnimal.CHIEN);
-		zoo.AjouterSecteur(TypeAnimal.CHIEN);
 		
-		zoo.nouvelAnimal(new Chat("Felix"));
-		zoo.nouvelAnimal(new Chat("Gandalf"));
-		zoo.nouvelAnimal(new Chat("Malot"));
-		zoo.nouvelAnimal(new Chat("Griffe"));
-		zoo.nouvelAnimal(new Chat("Samuel"));
-		zoo.nouvelAnimal(new Chat("Brad Pitt"));
-		
-		System.out.println("nombre d'animaux : "+zoo.nombreAnimaux());
 		
 		logger.error("Une erreur !!!!");
+		
+		
+		
+        
 	
 	}
 

@@ -27,6 +27,14 @@
 	    <version>2.14.0</version>
 	</dependency>
 	
+	<!-- https://mvnrepository.com/artifact/com.thoughtworks.xstream/xstream -->
+	<dependency>
+	    <groupId>com.thoughtworks.xstream</groupId>
+	    <artifactId>xstream</artifactId>
+	    <version>1.4.14</version>
+	</dependency>
+	
+	
 	</dependencies>
 </project>
 
